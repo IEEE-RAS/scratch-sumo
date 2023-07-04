@@ -13,3 +13,7 @@ Consiste em 2 robôs-sumô que serão programados pelos estudantes e competem en
 - 4x Sensor Obstáculo Reflexivo IR
 
 O chassis é confectionado em plástico (majoritariamente ABS) e produzido por impressão 3D.
+
+## Snapshot
+
+![Prototipo](snapshots/2023-07-01_17-19.png)
