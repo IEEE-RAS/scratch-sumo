@@ -16,4 +16,4 @@ O chassis é confectionado em plástico (majoritariamente ABS) e produzido por i
 
 ## Snapshot
 
-![Prototipo](snapshots/2023-07-01_17-19.png)
+![Prototipo](snapshots/2023-07-07_19-08.png)
