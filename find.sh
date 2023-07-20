@@ -4,7 +4,7 @@ busca() { #busca a frase e imprime o caminho
     caminho=$1
     frase=$2
 
-    if grep -q "$frase" "$caminho"; then
+    if grep -qF "$frase" "$caminho"; then
         echo $caminho
     fi
 }
