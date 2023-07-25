@@ -23,112 +23,82 @@
 // Configuração do sensor ultrassônico
 NewPing sonar(TRIGGER_PIN, ECHO_PIN);
 
-// Função para controlar a velocidade do motor A
-void controlarVelocidadeMotorA(int velocidade) {
-  analogWrite(MOTOR_A_IN1, 0); // Mantém o pino IN1 sempre em LOW
-  analogWrite(MOTOR_A_IN2, velocidade); // Controla a velocidade usando o pino IN2 com PWM
-}
-
-// Função para controlar a velocidade do motor B
-void controlarVelocidadeMotorB(int velocidade) {
-  analogWrite(MOTOR_B_IN3, 0); // Mantém o pino IN3 sempre em LOW
-  analogWrite(MOTOR_B_IN4, velocidade); // Controla a velocidade usando o pino IN4 com PWM
-}
-
 // Função para mover o robô para frente
-void moverParaFrente() {
-  controlarVelocidadeMotorA(VELOCIDADE_MAXIMA);
-  controlarVelocidadeMotorB(VELOCIDADE_MAXIMA);
-  digitalWrite(MOTOR_A_IN1, HIGH);
-  digitalWrite(MOTOR_A_IN2, LOW);
-  digitalWrite(MOTOR_B_IN3, HIGH);
-  digitalWrite(MOTOR_B_IN4, LOW);
+void moverParaFrente(int velocidade) {
+  analogWrite(MOTOR_A_IN1, velocidade);
+  analogWrite(MOTOR_A_IN2, 0);
+  analogWrite(MOTOR_B_IN3, velocidade);
+  analogWrite(MOTOR_B_IN4, 0);
 }
 
 // Função para mover o robô para trás
-void moverParaTras() {
-  controlarVelocidadeMotorA(VELOCIDADE_MAXIMA);
-  controlarVelocidadeMotorB(VELOCIDADE_MAXIMA);
-  digitalWrite(MOTOR_A_IN1, LOW);
-  digitalWrite(MOTOR_A_IN2, HIGH);
-  digitalWrite(MOTOR_B_IN3, LOW);
-  digitalWrite(MOTOR_B_IN4, HIGH);
+void moverParaTras(int velocidade) {
+  analogWrite(MOTOR_A_IN1, 0);
+  analogWrite(MOTOR_A_IN2, velocidade);
+  analogWrite(MOTOR_B_IN3, 0);
+  analogWrite(MOTOR_B_IN4, velocidade);
 }
 
 // Função para parar o robô
 void parar() {
-  controlarVelocidadeMotorA(0);
-  controlarVelocidadeMotorB(0);
-  digitalWrite(MOTOR_A_IN1, LOW);
-  digitalWrite(MOTOR_A_IN2, LOW);
-  digitalWrite(MOTOR_B_IN3, LOW);
-  digitalWrite(MOTOR_B_IN4, LOW);
+  analogWrite(MOTOR_A_IN1, 0);
+  analogWrite(MOTOR_A_IN2, 0);
+  analogWrite(MOTOR_B_IN3, 0);
+  analogWrite(MOTOR_B_IN4, 0);
 }
 
 // Função para girar o robô para a esquerda
-void girarEsquerda() {
-  controlarVelocidadeMotorA(VELOCIDADE_GIRO);
-  controlarVelocidadeMotorB(VELOCIDADE_GIRO);
-  digitalWrite(MOTOR_A_IN1, LOW);
-  digitalWrite(MOTOR_A_IN2, HIGH);
-  digitalWrite(MOTOR_B_IN3, HIGH);
-  digitalWrite(MOTOR_B_IN4, LOW);
+void girarEsquerda(int velocidade) {
+  analogWrite(MOTOR_A_IN1, 0);
+  analogWrite(MOTOR_A_IN2, velocidade);
+  analogWrite(MOTOR_B_IN3, velocidade);
+  analogWrite(MOTOR_B_IN4, 0);
 }
 
 // Função para girar o robô para a direita
-void girarDireita() {
-  controlarVelocidadeMotorA(VELOCIDADE_GIRO);
-  controlarVelocidadeMotorB(VELOCIDADE_GIRO);
-  digitalWrite(MOTOR_A_IN1, HIGH);
-  digitalWrite(MOTOR_A_IN2, LOW);
-  digitalWrite(MOTOR_B_IN3, LOW);
-  digitalWrite(MOTOR_B_IN4, HIGH);
+void girarDireita(int velocidade) {
+  analogWrite(MOTOR_A_IN1, velocidade);
+  analogWrite(MOTOR_A_IN2, 0);
+  analogWrite(MOTOR_B_IN3, 0);
+  analogWrite(MOTOR_B_IN4, velocidade);
 }
 
 // Função para mover o robô à frente e esquerda (utilizando apenas rotação dos motores)
 void moverFrenteEsquerda() {
-  controlarVelocidadeMotorA(VELOCIDADE_GIRO);
-  controlarVelocidadeMotorB(VELOCIDADE_MAXIMA);
-  digitalWrite(MOTOR_A_IN1, LOW);
-  digitalWrite(MOTOR_A_IN2, HIGH);
-  digitalWrite(MOTOR_B_IN3, HIGH);
-  digitalWrite(MOTOR_B_IN4, LOW);
+  analogWrite(MOTOR_A_IN1, 0);
+  analogWrite(MOTOR_A_IN2, VELOCIDADE_GIRO);
+  analogWrite(MOTOR_B_IN3, VELOCIDADE_MAXIMA);
+  analogWrite(MOTOR_B_IN4, 0);
   delay(500);  // Ajuste esse tempo conforme necessário para a curva
   parar();
 }
 
 // Função para mover o robô à frente e direita (utilizando apenas rotação dos motores)
 void moverFrenteDireita() {
-  controlarVelocidadeMotorA(VELOCIDADE_MAXIMA);
-  controlarVelocidadeMotorB(VELOCIDADE_GIRO);
-  digitalWrite(MOTOR_A_IN1, HIGH);
-  digitalWrite(MOTOR_A_IN2, LOW);
-  digitalWrite(MOTOR_B_IN3, LOW);
-  digitalWrite(MOTOR_B_IN4, HIGH);
+  analogWrite(MOTOR_A_IN1, VELOCIDADE_MAXIMA);
+  analogWrite(MOTOR_A_IN2, 0);
+  analogWrite(MOTOR_B_IN3, 0);
+  analogWrite(MOTOR_B_IN4, VELOCIDADE_GIRO);
   delay(500);  // Ajuste esse tempo conforme necessário para a curva
   parar();
 }
 
 // Função para mover o robô para trás e esquerda (utilizando apenas rotação dos motores)
 void moverTrasEsquerda() {
-  controlarVelocidadeMotorA(VELOCIDADE_GIRO);
-  controlarVelocidadeMotorB(VELOCIDADE_MAXIMA);
-  digitalWrite(MOTOR_A_IN1, HIGH);
-  digitalWrite(MOTOR_A_IN2, LOW);
-  digitalWrite(MOTOR_B_IN3, LOW);
-  digitalWrite(MOTOR_B_IN4, HIGH);
+  analogWrite(MOTOR_A_IN1, VELOCIDADE_GIRO);
+  analogWrite(MOTOR_A_IN2, 0);
+  analogWrite(MOTOR_B_IN3, 0);
+  analogWrite(MOTOR_B_IN4, VELOCIDADE_MAXIMA);
   delay(500);  // Ajuste esse tempo conforme necessário para a curva
   parar();
 }
 
 // Função para mover o robô para trás e direita (utilizando apenas rotação dos motores)
 void moverTrasDireita() {
-  controlarVelocidadeMotorA(VELOCIDADE_MAXIMA);
-  controlarVelocidadeMotorB(VELOCIDADE_GIRO);
-  digitalWrite(MOTOR_A_IN1, LOW);
-  digitalWrite(MOTOR_A_IN2, HIGH);
-  digitalWrite(MOTOR_B_IN3, HIGH);
-  digitalWrite(MOTOR_B_IN4, LOW);
+  analogWrite(MOTOR_A_IN1, 0);
+  analogWrite(MOTOR_A_IN2, VELOCIDADE_MAXIMA);
+  analogWrite(MOTOR_B_IN3, VELOCIDADE_GIRO);
+  analogWrite(MOTOR_B_IN4, 0);
   delay(500);  // Ajuste esse tempo conforme necessário para a curva
   parar();
 }
