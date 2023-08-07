@@ -23,9 +23,10 @@ motorDefinitions = "// Definição dos pinos dos motores\n\
 irDefinitions = "#define IR_TPIN 10\n\
 #define IR_FPIN 4\n"
 
-sonarDefinitions = "#define TRIGGER_PIN 12   // Arduino pin tied to trigger pin on the ultrasonic sensor.\n\
-#define ECHO_PIN 11      // Arduino pin tied to echo pin on the ultrasonic sensor.\n\
-#define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.\n"
+sonarDefinitions = "#define TRIGGER_PIN 7   // Arduino pin tied to trigger pin on the ultrasonic sensor.\n\
+#define ECHO_PIN 8      // Arduino pin tied to echo pin on the ultrasonic sensor.\n\
+#define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.\n\n\
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.\n"
 
 moveFrenteDefinition = "// Função para mover o robô para frente\n" +
     "void moveFrente(int a, int b)\n" +
@@ -123,9 +124,10 @@ Blockly.Arduino['movetrasdireita'] = function (block) {
     var value_vel = Blockly.Arduino.valueToCode(block, 'vel', Blockly.Arduino.ORDER_ATOMIC);
     Blockly.Arduino.definitions_["define_motor_configs"] = motorDefinitions;
     Blockly.Arduino.definitions_["define_movetras"] = moveTrasDefinition;
-    var code = "moveFrente(" + value_vel + "," + value_vel + " / 3);\n"
+    var code = "moveFrente(" + value_vel + "," + value_vel + " / 3);\n";
     return code;
 };
+
 
 
 Blockly.Arduino['parar'] = function (block) {
@@ -137,7 +139,16 @@ Blockly.Arduino['parar'] = function (block) {
         "   analogWrite(MOTOR_B_IN2, 0);\n" +
         "   analogWrite(MOTOR_B_IN1, 0);\n" +
         "}"
-    var code = "parar();\n"
+    var code = "parar();\n";
     return code;
 };
+
+
+Blockly.Arduino['lesonar'] = function (block) {
+    Blockly.Arduino.includes_["includes_sonar"] = "#include <NewPing.h>\n";
+    Blockly.Arduino.definitions_["define_sonar"] = sonarDefinitions;
+    var code = "sonar.ping_cm()";
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
 

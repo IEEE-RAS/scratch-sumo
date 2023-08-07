@@ -292,7 +292,7 @@
 		<block type="rf433_rx" colour="#0152AB"></block>
 		<block type="rf433_tx" colour="#0152AB"></block>
 	</category>
-	<category name="CAT_RASSUMO" colour="#FC6203">
+	<category name="CAT_RASSUMO" colour="#A83279">
 		<block type="movefrente">
 			<value name="vel">
 				<shadow type="math_number">
@@ -350,6 +350,7 @@
 			</value>
 		</block>
 		<block type="parar"></block>
+		<block type="lesonar"></block>
 	</category>
 
 </toolbox>

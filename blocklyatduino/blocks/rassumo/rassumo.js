@@ -153,3 +153,18 @@ Blockly.Blocks['parar'] = {
     }
 };
 
+
+Blockly.Blocks['lesonar'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("leSonar");
+        this.setInputsInline(false);
+        this.setOutput(true);
+        this.setColour("#8132a8");
+        this.setTooltip('Lê valor do sonar');
+        this.setHelpUrl('https://www.arduino.cc/reference/en/');
+    }
+};
+
+
+
