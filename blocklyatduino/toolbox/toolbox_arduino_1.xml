@@ -351,6 +351,8 @@
 		</block>
 		<block type="parar"></block>
 		<block type="lesonar"></block>
+		<block type="leirfrente"></block>
+		<block type="leirtras"></block>
 	</category>
 
 </toolbox>

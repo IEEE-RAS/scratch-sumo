@@ -157,7 +157,7 @@ Blockly.Blocks['parar'] = {
 Blockly.Blocks['lesonar'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("leSonar");
+            .appendField("Lê Sonar");
         this.setInputsInline(false);
         this.setOutput(true);
         this.setColour("#8132a8");
@@ -166,5 +166,27 @@ Blockly.Blocks['lesonar'] = {
     }
 };
 
+Blockly.Blocks['leirfrente'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Lê Borda Frontal");
+        this.setInputsInline(false);
+        this.setOutput(true);
+        this.setColour("#8132a8");
+        this.setTooltip('Lê valor do sensor de IR frontal para detectar borda');
+        this.setHelpUrl('https://www.arduino.cc/reference/en/');
+    }
+};
 
+Blockly.Blocks['leirtras'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Lê Borda Traseira");
+        this.setInputsInline(false);
+        this.setOutput(true);
+        this.setColour("#8132a8");
+        this.setTooltip('Lê valor do sensor de IR traseiro para detectar borda');
+        this.setHelpUrl('https://www.arduino.cc/reference/en/');
+    }
+};
 

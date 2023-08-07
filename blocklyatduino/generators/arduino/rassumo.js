@@ -20,8 +20,13 @@ motorDefinitions = "// Definição dos pinos dos motores\n\
 #define HALF_SPEED 170\n\
 #define CUSTOM_SPEED 150\n"
 
-irDefinitions = "#define IR_TPIN 10\n\
-#define IR_FPIN 4\n"
+irDefinitions = "// Definição do pino do sensor infravermelho (Analógico)\n\
+// #define SENSOR_IR 19 // A0\n\
+#define SENSOR_IR_FRENTE 5\n\
+#define SENSOR_IR_TRAS 6\n"
+
+irSetups = "pinMode(SENSOR_IR_FRENTE, INPUT);\n\
+  pinMode(SENSOR_IR_TRAS, INPUT);\n"
 
 sonarDefinitions = "#define TRIGGER_PIN 7   // Arduino pin tied to trigger pin on the ultrasonic sensor.\n\
 #define ECHO_PIN 8      // Arduino pin tied to echo pin on the ultrasonic sensor.\n\
@@ -148,6 +153,20 @@ Blockly.Arduino['lesonar'] = function (block) {
     Blockly.Arduino.includes_["includes_sonar"] = "#include <NewPing.h>\n";
     Blockly.Arduino.definitions_["define_sonar"] = sonarDefinitions;
     var code = "sonar.ping_cm()";
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino['leirfrente'] = function (block) {
+    Blockly.Arduino.definitions_["define_ir"] = irDefinitions;
+    Blockly.Arduino.setups_["setups_ir"] = irSetups;
+    var code = "digitalRead(SENSOR_IR_FRENTE)";
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino['leirtras'] = function (block) {
+    Blockly.Arduino.definitions_["define_ir"] = irDefinitions;
+    Blockly.Arduino.setups_["setups_ir"] = irSetups;
+    var code = "digitalRead(SENSOR_IR_TRAS)";
     return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
