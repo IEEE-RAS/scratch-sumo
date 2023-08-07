@@ -294,24 +294,56 @@
 	</category>
 	<category name="CAT_RASSUMO" colour="#FC6203">
 		<block type="movefrente">
-			<value name="velMA">
-				<shadow type="math_number">
-					<field name="NUM">255</field>
-				</shadow>
-			</value>
-			<value name="velMB">
+			<value name="vel">
 				<shadow type="math_number">
 					<field name="NUM">255</field>
 				</shadow>
 			</value>
 		</block>
 		<block type="movetras">
-			<value name="velMA">
+			<value name="vel">
 				<shadow type="math_number">
 					<field name="NUM">255</field>
 				</shadow>
 			</value>
-			<value name="velMB">
+		</block>
+		<block type="giraresquerda">
+			<value name="vel">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="girardireita">
+			<value name="vel">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="movefrentedireita">
+			<value name="vel">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="movefrenteesquerda">
+			<value name="vel">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="movetrasesquerda">
+			<value name="vel">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="movetrasdireita">
+			<value name="vel">
 				<shadow type="math_number">
 					<field name="NUM">255</field>
 				</shadow>
