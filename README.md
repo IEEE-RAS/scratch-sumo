@@ -11,6 +11,8 @@ Consiste em 2 robôs-sumô que serão programados pelos estudantes e competem en
 - 4x N20 Motor Reduzido
 - 2x HC-SR04 Sensor Ultrassonico
 - 4x Sensor Obstáculo Reflexivo IR
+- 2x Ponte H L9110s
+- 2x Buck Converter LM2596
 
 O chassis é confectionado em plástico (majoritariamente ABS) e produzido por impressão 3D.
 
