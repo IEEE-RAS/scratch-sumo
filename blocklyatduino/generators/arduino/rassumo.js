@@ -60,7 +60,7 @@ gigarEsquerdaDefinition = "// Função para girar o robô para a esquerda\n" +
     "}"
 
 gigarDireitaDefinition = "// Função para girar o robô para a direita\n" +
-    "void girarEsquerda(int velocidade) {\n" +
+    "void girarDireita(int velocidade) {\n" +
     "  analogWrite(MOTOR_A_IN1, velocidade);\n" +
     "  analogWrite(MOTOR_A_IN2, 0);\n" +
     "  analogWrite(MOTOR_B_IN1, 0);\n" +
