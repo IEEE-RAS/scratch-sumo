@@ -12,10 +12,10 @@ goog.require('Blockly.Arduino');
 
 
 motorDefinitions = "// Definição dos pinos dos motores\n\
-#define MOTOR_A_IN1 6\n\
-#define MOTOR_A_IN2 9\n\
-#define MOTOR_B_IN1 3\n\
-#define MOTOR_B_IN2 5\n\
+#define MOTOR_A_IN1 11\n\
+#define MOTOR_A_IN2 10\n\
+#define MOTOR_B_IN1 9\n\
+#define MOTOR_B_IN2 3\n\
 #define MAX_SPEED 255\n\
 #define HALF_SPEED 170\n\
 #define CUSTOM_SPEED 150\n"
